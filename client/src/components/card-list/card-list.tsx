@@ -14,15 +14,20 @@ type Props = {
     style: CSSProperties;
     onDeleteCard: (listId: string, cardId: string) => void;
     onRenameCard: (listId: string, cardId: string, newCardName: string) => void;
+    onDescriptionCard: (listId: string, cardId: string, newCardDescription: string) => void;
 };
 
-const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard }: Props) => {
+const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard, onDescriptionCard }: Props) => {
     const handleDeleteCard = (cardId: string) => {
         onDeleteCard(listId, cardId);
     };
 
     const handleRenameCard = (cardId: string, newCardName: string) => {
         onRenameCard(listId, cardId, newCardName);
+    };
+
+    const handleDescriptionCard = (cardId: string, newCardDescription: string) => {
+        onDescriptionCard(listId, cardId, newCardDescription);
     };
 
     return (
@@ -40,6 +45,7 @@ const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard 
                             dropProvided={dropProvided}
                             handleDeleteCard={handleDeleteCard}
                             handleRenameCard={handleRenameCard}
+                            handleDescriptionCard={handleDescriptionCard}
                         />
                     </ScrollContainer>
                 </ListWrapper>

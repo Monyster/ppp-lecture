@@ -80,6 +80,10 @@ export const Workspace = () => {
         socket.emit(CardEvent.RENAME, listId, cardId, newCardName);
     };
 
+    const onDescriptionCard = (listId: string, cardId: string, newCardDescription: string) => {
+        socket.emit(CardEvent.CHANGE_DESCRIPTION, listId, cardId, newCardDescription);
+    };
+
     return (
         <React.Fragment>
             <DragDropContext onDragEnd={onDragEnd}>
@@ -98,6 +102,7 @@ export const Workspace = () => {
                                     onCreateCard={onCreateCard}
                                     onDeleteCard={onDeleteCard}
                                     onRenameCard={onRenameCard}
+                                    onDescriptionCard={onDescriptionCard}
                                 />
                             ))}
                             {provided.placeholder}

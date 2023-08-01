@@ -3,7 +3,7 @@ enum CardEvent {
     DELETE = 'card:delete',
     REORDER = 'card:reorder',
     RENAME = 'card:rename',
-    CHANGE_DESCRIPTION = 'card:change-description',
+    CHANGE_DESCRIPTION = 'card:change_description',
 }
 
 export { CardEvent };
