@@ -8,13 +8,14 @@ type Props = {
     dropProvided: DroppableProvided;
     cards: Card[];
     handleDeleteCard: (cardId: string) => void;
+    handleRenameCard: (cardId: string, newCardName: string) => void;
 };
 
-const List = ({ cards, dropProvided, handleDeleteCard }: Props) => {
+const List = ({ cards, dropProvided, handleDeleteCard, handleRenameCard }: Props) => {
     return (
         <div className="list-container">
             <DropZone ref={dropProvided.innerRef}>
-                <Cards cards={cards} onDeleteCard={handleDeleteCard} />
+                <Cards cards={cards} onDeleteCard={handleDeleteCard} onRenameCard={handleRenameCard} />
                 {dropProvided.placeholder}
             </DropZone>
         </div>

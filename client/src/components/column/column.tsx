@@ -20,6 +20,7 @@ type Props = {
     onRenameList: (listId: string, newName: string) => void;
     onCreateCard: (listId: string, cardName: string) => void;
     onDeleteCard: (listId: string, cardId: string) => void;
+    onRenameCard: (listId: string, cardId: string, newCardName: string) => void;
 };
 
 export const Column = ({
@@ -31,6 +32,7 @@ export const Column = ({
     onRenameList,
     onCreateCard,
     onDeleteCard,
+    onRenameCard,
 }: Props) => {
     return (
         <Draggable draggableId={listId} index={index}>
@@ -63,6 +65,7 @@ export const Column = ({
                         }}
                         cards={cards}
                         onDeleteCard={onDeleteCard}
+                        onRenameCard={onRenameCard}
                     />
                     <Footer
                         onCreateCard={(cardName) => {
