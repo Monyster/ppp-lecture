@@ -1,6 +1,7 @@
 enum CardEvent {
-  CREATE = 'card:create',
-  REORDER = 'card:reorder',
+    CREATE = 'card:create',
+    DELETE = 'card:delete',
+    REORDER = 'card:reorder',
 }
 
 export { CardEvent };

@@ -19,9 +19,19 @@ type Props = {
     onDeleteList: (listId: string) => void;
     onRenameList: (listId: string, newName: string) => void;
     onCreateCard: (listId: string, cardName: string) => void;
+    onDeleteCard: (listId: string, cardId: string) => void;
 };
 
-export const Column = ({ listId, listName, cards, index, onDeleteList, onRenameList, onCreateCard }: Props) => {
+export const Column = ({
+    listId,
+    listName,
+    cards,
+    index,
+    onDeleteList,
+    onRenameList,
+    onCreateCard,
+    onDeleteCard,
+}: Props) => {
     return (
         <Draggable draggableId={listId} index={index}>
             {(provided: DraggableProvided, snapshot: DraggableStateSnapshot) => (
@@ -52,6 +62,7 @@ export const Column = ({ listId, listName, cards, index, onDeleteList, onRenameL
                             backgroundColor: snapshot.isDragging ? colors.G50 : '',
                         }}
                         cards={cards}
+                        onDeleteCard={onDeleteCard}
                     />
                     <Footer
                         onCreateCard={(cardName) => {
