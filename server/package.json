@@ -8,12 +8,13 @@
   "author": "Vitalii Yarmus",
   "license": "MIT",
   "dependencies": {
-    "socket.io": "4.6.0"
+    "socket.io": "4.6.0",
+    "vite": "4.4.8"
   },
   "devDependencies": {
     "@types/node": "18.13.0",
     "@types/socket.io": "3.0.2",
-    "nodemon": "2.0.20",
+    "nodemon": "^3.0.1",
     "ts-node": "10.9.1"
   }
 }
