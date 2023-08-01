@@ -8,6 +8,7 @@ export class ListHandler extends SocketHandler {
     public handleConnection(socket: Socket): void {
         socket.on(ListEvent.CREATE, this.createList.bind(this));
         socket.on(ListEvent.DELETE, this.deleteList.bind(this));
+        socket.on(ListEvent.RENAME, this.renameList.bind(this));
         socket.on(ListEvent.GET, this.getLists.bind(this));
         socket.on(ListEvent.REORDER, this.reorderLists.bind(this));
     }
@@ -38,6 +39,22 @@ export class ListHandler extends SocketHandler {
             // TODO: error emit
             return;
         }
+
+        this.db.setData(newLists);
+        this.updateLists();
+    }
+
+    private renameList(listId: string, newName: string): void {
+        const lists = this.db.getData();
+
+        const newLists = lists.map((list) => {
+            if (list.id === listId) {
+                list.name = newName;
+                return list;
+            }
+
+            return list;
+        });
 
         this.db.setData(newLists);
         this.updateLists();
