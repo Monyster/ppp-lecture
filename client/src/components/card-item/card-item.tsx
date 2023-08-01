@@ -16,9 +16,10 @@ type Props = {
     isDragging: boolean;
     provided: DraggableProvided;
     onDelete: (cardId: string) => void;
+    onRename: (cardId: string, newCardName: string) => void;
 };
 
-export const CardItem = ({ card, isDragging, provided, onDelete }: Props) => {
+export const CardItem = ({ card, isDragging, provided, onDelete, onRename }: Props) => {
     return (
         <Container
             className="card-container"
@@ -31,7 +32,12 @@ export const CardItem = ({ card, isDragging, provided, onDelete }: Props) => {
             aria-label={card.name}
         >
             <Content>
-                <Title onChange={() => {}} title={card.name} fontSize="large" bold={true} />
+                <Title
+                    onChange={(newName) => onRename(card.id, newName)}
+                    title={card.name}
+                    fontSize="large"
+                    bold={true}
+                />
                 <Text text={card.description} onChange={() => {}} />
                 <Footer>
                     <DeleteButton

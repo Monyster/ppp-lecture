@@ -13,11 +13,16 @@ type Props = {
     cards: Card[];
     style: CSSProperties;
     onDeleteCard: (listId: string, cardId: string) => void;
+    onRenameCard: (listId: string, cardId: string, newCardName: string) => void;
 };
 
-const CardsList = ({ listId, listType, style, cards, onDeleteCard }: Props) => {
+const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard }: Props) => {
     const handleDeleteCard = (cardId: string) => {
         onDeleteCard(listId, cardId);
+    };
+
+    const handleRenameCard = (cardId: string, newCardName: string) => {
+        onRenameCard(listId, cardId, newCardName);
     };
 
     return (
@@ -30,7 +35,12 @@ const CardsList = ({ listId, listType, style, cards, onDeleteCard }: Props) => {
                     {...dropProvided.droppableProps}
                 >
                     <ScrollContainer>
-                        <List cards={cards} dropProvided={dropProvided} handleDeleteCard={handleDeleteCard} />
+                        <List
+                            cards={cards}
+                            dropProvided={dropProvided}
+                            handleDeleteCard={handleDeleteCard}
+                            handleRenameCard={handleRenameCard}
+                        />
                     </ScrollContainer>
                 </ListWrapper>
             )}
