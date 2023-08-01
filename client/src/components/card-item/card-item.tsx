@@ -17,9 +17,10 @@ type Props = {
     provided: DraggableProvided;
     onDelete: (cardId: string) => void;
     onRename: (cardId: string, newCardName: string) => void;
+    onChangeDescription: (cardId: string, newCardDescription: string) => void;
 };
 
-export const CardItem = ({ card, isDragging, provided, onDelete, onRename }: Props) => {
+export const CardItem = ({ card, isDragging, provided, onDelete, onRename, onChangeDescription }: Props) => {
     return (
         <Container
             className="card-container"
@@ -38,7 +39,10 @@ export const CardItem = ({ card, isDragging, provided, onDelete, onRename }: Pro
                     fontSize="large"
                     bold={true}
                 />
-                <Text text={card.description} onChange={() => {}} />
+                <Text
+                    text={card.description}
+                    onChange={(newDescription) => onChangeDescription(card.id, newDescription)}
+                />
                 <Footer>
                     <DeleteButton
                         onClick={() => {
