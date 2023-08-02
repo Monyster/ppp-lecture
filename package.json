@@ -1,24 +1,26 @@
 {
-  "name": "bsa-patterns-hw",
-  "version": "0.0.0",
-  "description": "Starter for Patterns Practises and Principles homework. Binary Studio Academy",
-  "scripts": {},
-  "author": "Vitalii Yarmus",
-  "license": "MIT",
-  "workspaces": [
-    "client",
-    "server"
-  ],
-  "engines": {
-    "node": ">=16 <17",
-    "npm": ">=8 <9"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.1",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
-    "prettier": "^3.0.0",
-    "typescript": "4.9.5"
-  }
+    "name": "bsa-patterns-hw",
+    "version": "0.0.0",
+    "description": "Starter for Patterns Practises and Principles homework. Binary Studio Academy",
+    "scripts": {
+        "deploy": "npm i     npm start -w server    npm start -w client"
+    },
+    "author": "Vitalii Yarmus",
+    "license": "MIT",
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "engines": {
+        "node": ">=16 <17",
+        "npm": ">=8 <9"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.2.1",
+        "@typescript-eslint/parser": "^6.2.1",
+        "eslint": "^8.46.0",
+        "eslint-config-prettier": "^8.9.0",
+        "prettier": "^3.0.0",
+        "typescript": "4.9.5"
+    }
 }
