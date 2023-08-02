@@ -2,7 +2,7 @@ import type { Server, Socket } from 'socket.io';
 import { ListEvent } from '../common/enums';
 import { List } from '../data/models/list';
 import { SocketHandler } from './socket.handler';
-import { LogLevel, LoggerObserver } from '../logger/observer'; // Adjust the import path accordingly
+import { LogLevel, LoggerObserver } from '../logger/observer';
 import { Database } from '../data/database';
 import { ReorderService } from '../services/reorder.service';
 import { ListHandler } from './list.handler';
