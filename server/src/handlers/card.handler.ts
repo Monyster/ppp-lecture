@@ -1,8 +1,11 @@
-import type { Socket } from 'socket.io';
+import type { Server, Socket } from 'socket.io';
 
 import { CardEvent } from '../common/enums';
 import { Card } from '../data/models/card';
 import { SocketHandler } from './socket.handler';
+import { Database } from '../data/database';
+import { ReorderService } from '../services/reorder.service';
+import { LogLevel, LoggerObserver } from '../logger/observer';
 
 export class CardHandler extends SocketHandler {
     public handleConnection(socket: Socket): void {
@@ -88,7 +91,7 @@ export class CardHandler extends SocketHandler {
         this.updateLists();
     }
 
-    private reorderCards({
+    public reorderCards({
         sourceIndex,
         destinationIndex,
         sourceListId,
