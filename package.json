@@ -3,8 +3,7 @@
     "version": "0.0.0",
     "description": "Starter for Patterns Practises and Principles homework. Binary Studio Academy",
     "scripts": {
-      "start": "npm i     npm start -w server    npm start -w client",
-      "deploy": "npm i     npm start -w server    npm start -w client"
+        "start": "npm i && npm start -w server && npm start -w client"
     },
     "author": "Vitalii Yarmus",
     "license": "MIT",
