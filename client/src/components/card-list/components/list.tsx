@@ -10,9 +10,17 @@ type Props = {
     handleDeleteCard: (cardId: string) => void;
     handleRenameCard: (cardId: string, newCardName: string) => void;
     handleDescriptionCard: (cardId: string, newCardDescription: string) => void;
+    handleDuplicateCard: (cardId: string) => void;
 };
 
-const List = ({ cards, dropProvided, handleDeleteCard, handleRenameCard, handleDescriptionCard }: Props) => {
+const List = ({
+    cards,
+    dropProvided,
+    handleDeleteCard,
+    handleRenameCard,
+    handleDescriptionCard,
+    handleDuplicateCard,
+}: Props) => {
     return (
         <div className="list-container">
             <DropZone ref={dropProvided.innerRef}>
@@ -21,6 +29,7 @@ const List = ({ cards, dropProvided, handleDeleteCard, handleRenameCard, handleD
                     onDeleteCard={handleDeleteCard}
                     onRenameCard={handleRenameCard}
                     onChangeDescriptionCard={handleDescriptionCard}
+                    handleDuplicateCard={handleDuplicateCard}
                 />
                 {dropProvided.placeholder}
             </DropZone>

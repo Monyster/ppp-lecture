@@ -18,9 +18,18 @@ type Props = {
     onDelete: (cardId: string) => void;
     onRename: (cardId: string, newCardName: string) => void;
     onChangeDescription: (cardId: string, newCardDescription: string) => void;
+    onDuplicate: (cardId: string) => void;
 };
 
-export const CardItem = ({ card, isDragging, provided, onDelete, onRename, onChangeDescription }: Props) => {
+export const CardItem = ({
+    card,
+    isDragging,
+    provided,
+    onDelete,
+    onRename,
+    onChangeDescription,
+    onDuplicate,
+}: Props) => {
     return (
         <Container
             className="card-container"
@@ -50,7 +59,11 @@ export const CardItem = ({ card, isDragging, provided, onDelete, onRename, onCha
                         }}
                     />
                     <Splitter />
-                    <CopyButton onClick={() => {}} />
+                    <CopyButton
+                        onClick={() => {
+                            onDuplicate(card.id);
+                        }}
+                    />
                 </Footer>
             </Content>
         </Container>
