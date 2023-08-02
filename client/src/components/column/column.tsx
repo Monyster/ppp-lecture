@@ -22,6 +22,7 @@ type Props = {
     onDeleteCard: (listId: string, cardId: string) => void;
     onRenameCard: (listId: string, cardId: string, newCardName: string) => void;
     onDescriptionCard: (listId: string, cardId: string, newCardDescription: string) => void;
+    onDuplicateCard: (listId: string, cardId: string) => void;
 };
 
 export const Column = ({
@@ -35,6 +36,7 @@ export const Column = ({
     onDeleteCard,
     onRenameCard,
     onDescriptionCard,
+    onDuplicateCard,
 }: Props) => {
     return (
         <Draggable draggableId={listId} index={index}>
@@ -69,6 +71,7 @@ export const Column = ({
                         onDeleteCard={onDeleteCard}
                         onRenameCard={onRenameCard}
                         onDescriptionCard={onDescriptionCard}
+                        onDuplicateCard={onDuplicateCard}
                     />
                     <Footer
                         onCreateCard={(cardName) => {

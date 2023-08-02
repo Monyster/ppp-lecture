@@ -10,9 +10,10 @@ type Props = {
     onDeleteCard: (cardId: string) => void;
     onRenameCard: (cardId: string, newCardName: string) => void;
     onChangeDescriptionCard: (cardId: string, newCardDescription: string) => void;
+    handleDuplicateCard: (cardId: string) => void;
 };
 
-const Cards = ({ cards, onDeleteCard, onRenameCard, onChangeDescriptionCard }: Props) => (
+const Cards = ({ cards, onDeleteCard, onRenameCard, onChangeDescriptionCard, handleDuplicateCard }: Props) => (
     <React.Fragment>
         {cards.map((card: Card, index: number) => (
             <Draggable key={card.id} draggableId={card.id} index={index}>
@@ -25,6 +26,7 @@ const Cards = ({ cards, onDeleteCard, onRenameCard, onChangeDescriptionCard }: P
                         onDelete={onDeleteCard}
                         onRename={onRenameCard}
                         onChangeDescription={onChangeDescriptionCard}
+                        onDuplicate={handleDuplicateCard}
                     />
                 )}
             </Draggable>

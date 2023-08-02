@@ -15,9 +15,19 @@ type Props = {
     onDeleteCard: (listId: string, cardId: string) => void;
     onRenameCard: (listId: string, cardId: string, newCardName: string) => void;
     onDescriptionCard: (listId: string, cardId: string, newCardDescription: string) => void;
+    onDuplicateCard: (listId: string, cardId: string) => void;
 };
 
-const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard, onDescriptionCard }: Props) => {
+const CardsList = ({
+    listId,
+    listType,
+    style,
+    cards,
+    onDeleteCard,
+    onRenameCard,
+    onDescriptionCard,
+    onDuplicateCard,
+}: Props) => {
     const handleDeleteCard = (cardId: string) => {
         onDeleteCard(listId, cardId);
     };
@@ -28,6 +38,10 @@ const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard,
 
     const handleDescriptionCard = (cardId: string, newCardDescription: string) => {
         onDescriptionCard(listId, cardId, newCardDescription);
+    };
+
+    const handleDuplicateCard = (cardId: string) => {
+        onDuplicateCard(listId, cardId);
     };
 
     return (
@@ -46,6 +60,7 @@ const CardsList = ({ listId, listType, style, cards, onDeleteCard, onRenameCard,
                             handleDeleteCard={handleDeleteCard}
                             handleRenameCard={handleRenameCard}
                             handleDescriptionCard={handleDescriptionCard}
+                            handleDuplicateCard={handleDuplicateCard}
                         />
                     </ScrollContainer>
                 </ListWrapper>
