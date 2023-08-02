@@ -13,38 +13,33 @@ export class ListHandler extends SocketHandler {
         socket.on(ListEvent.REORDER, this.reorderLists.bind(this));
     }
 
-    private getLists(callback: (cards: List[]) => void): void {
+    public getLists(callback: (cards: List[]) => void): void {
         callback(this.db.getData());
     }
 
-    private reorderLists(sourceIndex: number, destinationIndex: number): void {
+    public reorderLists(sourceIndex: number, destinationIndex: number): void {
         const lists = this.db.getData();
         const reorderedLists = this.reorderService.reorder(lists, sourceIndex, destinationIndex);
         this.db.setData(reorderedLists);
         this.updateLists();
     }
 
-    private createList(name: string): void {
+    public createList(name: string): void {
         const lists = this.db.getData();
         const newList = new List(name);
         this.db.setData(lists.concat(newList));
         this.updateLists();
     }
 
-    private deleteList(listId: string): void {
+    public deleteList(listId: string): void {
         const lists = this.db.getData();
         const newLists = lists.filter((list) => list.id !== listId);
-
-        if (lists.length === newLists.length) {
-            // TODO: error emit
-            return;
-        }
 
         this.db.setData(newLists);
         this.updateLists();
     }
 
-    private renameList(listId: string, newName: string): void {
+    public renameList(listId: string, newName: string): void {
         const lists = this.db.getData();
 
         const newLists = lists.map((list) => {
